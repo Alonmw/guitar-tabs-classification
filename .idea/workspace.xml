@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa014702-0841-4831-a890-6abeb62629e3" name="Changes" comment="Adjusted directory structure for clarity by renaming sub-folders in `data/preprocessed` for consistency. Enhanced `visualization.py` by adding functionality for data counting and improving method naming. Removed redundant and outdated content from the preprocessing notebook.">
-      <change afterPath="$PROJECT_DIR$/models/base_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebooks/EDA.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/EDA.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_loader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/visualization.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/visualization.py" afterDir="false" />
-    </list>
+    <list default="true" id="fa014702-0841-4831-a890-6abeb62629e3" name="Changes" comment="Refactor data structure and enhance visualization utilities&#10;&#10;Renamed directories in `data/preprocessed` for better clarity and consistency. Updated `visualization.py` with improved method naming and added data counting functionality. Removed outdated content from the preprocessing notebook to streamline the codebase." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -68,6 +62,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\PycharmProjects\guitar-tabs-classification\src" />
+    </key>
+  </component>
   <component name="RunManager" selected="Python.data_loader">
     <configuration name="data_loader" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="guitar-tabs-classification" />
@@ -165,7 +164,7 @@
       <workItem from="1742399345048" duration="13235000" />
       <workItem from="1742485488052" duration="73000" />
       <workItem from="1742485804928" duration="97000" />
-      <workItem from="1742485988177" duration="11503000" />
+      <workItem from="1742485988177" duration="15160000" />
     </task>
     <task id="LOCAL‎-00001" summary="Created data_loader.py, executed to save preprocessed files. EDA next">
       <option name="closed" value="true" />
@@ -183,7 +182,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1742491496450</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL‎-00003" summary="Refactor data structure and enhance visualization utilities&#10;&#10;Renamed directories in `data/preprocessed` for better clarity and consistency. Updated `visualization.py` with improved method naming and added data counting functionality. Removed outdated content from the preprocessing notebook to streamline the codebase.">
+      <option name="closed" value="true" />
+      <created>1742648222705</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL‎-00003" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1742648222705</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -194,7 +201,8 @@
     <MESSAGE value="Created data_loader.py, executed to save preprocessed files. EDA next" />
     <MESSAGE value="renamed preprocessing dirs, updated visualization.py" />
     <MESSAGE value="Adjusted directory structure for clarity by renaming sub-folders in `data/preprocessed` for consistency. Enhanced `visualization.py` by adding functionality for data counting and improving method naming. Removed redundant and outdated content from the preprocessing notebook." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adjusted directory structure for clarity by renaming sub-folders in `data/preprocessed` for consistency. Enhanced `visualization.py` by adding functionality for data counting and improving method naming. Removed redundant and outdated content from the preprocessing notebook." />
+    <MESSAGE value="Refactor data structure and enhance visualization utilities&#10;&#10;Renamed directories in `data/preprocessed` for better clarity and consistency. Updated `visualization.py` with improved method naming and added data counting functionality. Removed outdated content from the preprocessing notebook to streamline the codebase." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor data structure and enhance visualization utilities&#10;&#10;Renamed directories in `data/preprocessed` for better clarity and consistency. Updated `visualization.py` with improved method naming and added data counting functionality. Removed outdated content from the preprocessing notebook to streamline the codebase." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/guitar_tabs_classification$data_loader.coverage" NAME="data_loader Coverage Results" MODIFIED="1742642381358" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
