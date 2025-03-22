@@ -52,5 +52,3 @@ def count_data():
             dir_name = os.path.basename(base_dir)
             print(f'{dir_name} contains {counter} files')
         counter = 0
-
-count_data()

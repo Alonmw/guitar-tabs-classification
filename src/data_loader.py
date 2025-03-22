@@ -29,5 +29,28 @@ def load_raw_data():
 
                 np.save(output_file_path, cqt_normalized)
 
+def get_data_dir(pick_flag = False):
+    """
+        function that returns preprocessed data as np directory.
+        flag determines whether to keep f_pick and n_pick as keys.
+    """
+    data = {}
+    key = ''
+    values = []
+    for dirpath, _, files in os.walk(output_path):
+        for file in files:
+            if file.endswith(".npy"):
+                file_path = os.path.join(dirpath, file)
+                values.append(np.load(file_path))
+        if values:
+            if pick_flag:
+                key = os.path.basename(dirpath)
+            else:
+                key = os.path.basename(os.path.dirname(dirpath))
+            values = np.expand_dims(values, axis=-1)
+            data.setdefault(key, []).extend(values)
+            values = []
+    return data
 if __name__ == '__main__':
-    load_raw_data()
+    data = get_data_dir()
+    print(data['A0'][0].shape)
