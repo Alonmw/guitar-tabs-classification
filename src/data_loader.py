@@ -6,6 +6,7 @@ in form of Numpy arrays.
 from src.preprocessing import preprocess_file
 import os
 import numpy as np
+from sklearn.preprocessing import LabelEncoder
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 data_path = PROJECT_ROOT + "\data\\raw\\"
@@ -51,6 +52,19 @@ def get_data_dir(pick_flag = False):
             data.setdefault(key, []).extend(values)
             values = []
     return data
+
+def get_xy(data_dir):
+    X = []
+    y = []
+    for key, values in data_dir.items():
+        for value in values:
+            X.append(value)
+            y.append(key)
+    return (
+        np.array(X),
+        LabelEncoder().fit_transform(y)
+    )
+
 if __name__ == '__main__':
     data = get_data_dir()
     print(data['A0'][0].shape)
