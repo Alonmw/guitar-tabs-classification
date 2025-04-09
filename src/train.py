@@ -52,7 +52,7 @@ def train_and_save(x_train, y_train, x_val, y_val, x_test, y_test):
     print(f"Test Accuracy: {test_accuracy}")
 
     # Save the final model
-    final_model_path = ROOT_DIR + '/models/model.keras'
+    final_model_path = ROOT_DIR + '/models/model.h5'
     model.save(final_model_path)
     print(f"Model saved to {final_model_path}")
 

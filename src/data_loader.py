@@ -9,8 +9,8 @@ import numpy as np
 from sklearn.preprocessing import LabelEncoder
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-data_path = PROJECT_ROOT + "\data\\raw\\"
-output_path = PROJECT_ROOT + "\data\\preprocessed\\"
+data_path = PROJECT_ROOT + "/data/raw/"
+output_path = PROJECT_ROOT + "/data/preprocessed/"
 
 print(data_path)
 def load_raw_data():
@@ -24,7 +24,7 @@ def load_raw_data():
                 relative_path = os.path.relpath(dirpath, data_path)
                 output_folder = output_path + relative_path
                 filename = filename.replace(".wav", ".npy")
-                output_file_path = output_folder + "\\" + filename
+                output_file_path = output_folder + "/" + filename
 
                 os.makedirs(output_folder, exist_ok=True)
 
@@ -38,6 +38,7 @@ def get_data_dir(pick_flag = False):
     data = {}
     key = ''
     values = []
+
     for dirpath, _, files in os.walk(output_path):
         for file in files:
             if file.endswith(".npy"):

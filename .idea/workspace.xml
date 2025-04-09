@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa014702-0841-4831-a890-6abeb62629e3" name="Changes" comment="Add training pipeline and improve data handling&#10;&#10;Introduced a new `train.py` script to handle model training, validation, and testing. Enhanced `data_loader.py` with a `get_xy` function for feature and label extraction, and added dataset splitting and model training functionality. Updated project configuration files to integrate training steps.">
-      <change afterPath="$PROJECT_DIR$/server/app.py" afterDir="false" />
+    <list default="true" id="fa014702-0841-4831-a890-6abeb62629e3" name="Changes" comment="Added audio streaming and buffering, tested and fixed bugs, added TODO.md">
+      <change beforePath="$PROJECT_DIR$/.idea/guitar-tabs-classification.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/guitar-tabs-classification.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -22,6 +23,17 @@
       </list>
     </option>
   </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform)); sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo, NoAppException&#10;for module in [&quot;main.py&quot;, &quot;wsgi.py&quot;, &quot;app.py&quot;]:&#10;    try: locals().update(ScriptInfo(app_import_path=module, create_app=None).load_app().make_shell_context()); print(&quot;\nFlask App: %s&quot; % app.import_name); break&#10;    except NoAppException: pass">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform)); sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo, NoAppException&#10;for module in [&quot;main.py&quot;, &quot;wsgi.py&quot;, &quot;app.py&quot;]:&#10;    try: locals().update(ScriptInfo(app_import_path=module, create_app=None).load_app().make_shell_context()); print(&quot;\nFlask App: %s&quot; % app.import_name); break&#10;    except NoAppException: pass" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -34,7 +46,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Alonmw/guitar-tabs-classification.git&quot;,
-    &quot;accountId&quot;: &quot;2b34934b-d7f7-49a2-b5d2-a19428d87c95&quot;
+    &quot;accountId&quot;: &quot;ab3962eb-65ca-42d7-ae7e-c35e1269463f&quot;
   }
 }</component>
   <component name="ProblemsViewState">
@@ -52,6 +64,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Python.app.executor": "Run",
+    "Python.audio_stream.executor": "Run",
     "Python.data_loader.executor": "Run",
     "Python.preprocessing.executor": "Run",
     "Python.train.executor": "Run",
@@ -64,6 +77,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "vcs.Git",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -72,7 +86,7 @@
       <recent name="C:\Users\User\PycharmProjects\guitar-tabs-classification\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.app">
+  <component name="RunManager" selected="Python.train">
     <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="guitar-tabs-classification" />
       <option name="ENV_FILES" value="" />
@@ -96,6 +110,29 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="audio_stream" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="guitar-tabs-classification" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/server" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/server/audio_stream.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="data_loader" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="guitar-tabs-classification" />
       <option name="ENV_FILES" value="" />
@@ -111,29 +148,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/data_loader.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="preprocessing" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="guitar-tabs-classification" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/preprocessing.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -190,11 +204,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.app" />
         <item itemvalue="Python.train" />
         <item itemvalue="Python.data_loader" />
+        <item itemvalue="Python.audio_stream" />
+        <item itemvalue="Python.app" />
         <item itemvalue="Python.visualization" />
-        <item itemvalue="Python.preprocessing" />
       </list>
     </recent_temporary>
   </component>
@@ -218,6 +232,8 @@
       <workItem from="1742485488052" duration="73000" />
       <workItem from="1742485804928" duration="97000" />
       <workItem from="1742485988177" duration="22951000" />
+      <workItem from="1743489260950" duration="341000" />
+      <workItem from="1743504864232" duration="20207000" />
     </task>
     <task id="LOCAL‎-00001" summary="Created data_loader.py, executed to save preprocessed files. EDA next">
       <option name="closed" value="true" />
@@ -265,6 +281,17 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit&#10;contains raw data" />
     <MESSAGE value="Created data_loader.py, executed to save preprocessed files. EDA next" />
@@ -272,13 +299,15 @@
     <MESSAGE value="Adjusted directory structure for clarity by renaming sub-folders in `data/preprocessed` for consistency. Enhanced `visualization.py` by adding functionality for data counting and improving method naming. Removed redundant and outdated content from the preprocessing notebook." />
     <MESSAGE value="Refactor data structure and enhance visualization utilities&#10;&#10;Renamed directories in `data/preprocessed` for better clarity and consistency. Updated `visualization.py` with improved method naming and added data counting functionality. Removed outdated content from the preprocessing notebook to streamline the codebase." />
     <MESSAGE value="Add training pipeline and improve data handling&#10;&#10;Introduced a new `train.py` script to handle model training, validation, and testing. Enhanced `data_loader.py` with a `get_xy` function for feature and label extraction, and added dataset splitting and model training functionality. Updated project configuration files to integrate training steps." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add training pipeline and improve data handling&#10;&#10;Introduced a new `train.py` script to handle model training, validation, and testing. Enhanced `data_loader.py` with a `get_xy` function for feature and label extraction, and added dataset splitting and model training functionality. Updated project configuration files to integrate training steps." />
+    <MESSAGE value="Added audio streaming and buffering, tested and fixed bugs, added TODO.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added audio streaming and buffering, tested and fixed bugs, added TODO.md" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/guitar_tabs_classification$data_loader.coverage" NAME="data_loader Coverage Results" MODIFIED="1742642381358" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/guitar_tabs_classification$audio_stream.coverage" NAME="audio_stream Coverage Results" MODIFIED="1744193800099" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/server" />
     <SUITE FILE_PATH="coverage/guitar_tabs_classification$visualization.coverage" NAME="visualization Coverage Results" MODIFIED="1742490826050" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
-    <SUITE FILE_PATH="coverage/guitar_tabs_classification$app.coverage" NAME="app Coverage Results" MODIFIED="1743331505106" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/server" />
+    <SUITE FILE_PATH="coverage/guitar_tabs_classification$data_loader.coverage" NAME="data_loader Coverage Results" MODIFIED="1744195327103" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/guitar_tabs_classification$preprocessing.coverage" NAME="preprocessing Coverage Results" MODIFIED="1742469973824" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
-    <SUITE FILE_PATH="coverage/guitar_tabs_classification$train.coverage" NAME="train Coverage Results" MODIFIED="1743327911077" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/guitar_tabs_classification$app.coverage" NAME="app Coverage Results" MODIFIED="1743331505106" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/server" />
+    <SUITE FILE_PATH="coverage/guitar_tabs_classification$train.coverage" NAME="train Coverage Results" MODIFIED="1744195963011" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
   </component>
 </project>

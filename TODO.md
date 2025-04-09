@@ -1,0 +1,4 @@
+- Complete audio_prep.py
+- Preprocessed files are saved with shape (87,84), instead of (84,87,1) - fix load_raw_data (possibly give it a more accurate name) to expand dims before saving
+- Work on notebooks - proper EDA and preprocessing walkthrough
+- With testing on notebooks - figure the threshold for the models prediction including prediction of nothing played
