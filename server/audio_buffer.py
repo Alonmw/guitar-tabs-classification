@@ -1,6 +1,6 @@
 from collections import deque
 import numpy as np
-from audio_stream import audio_queue
+from .audio_stream import audio_queue
 
 SAMPLE_RATE = 22050
 WINDOW_SIZE = 2 * SAMPLE_RATE # 2 seconds of recording
