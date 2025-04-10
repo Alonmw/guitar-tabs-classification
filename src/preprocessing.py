@@ -14,8 +14,11 @@ def load_audio(file_path, sr=22050):
 def audio_to_cqt(audio, sr):
     """Converts audio into CQT spectrogram"""
     # Apply HPSS to separate harmonics (clean sound)
+    np.save("audio_pre_hpss.npy", audio)
+    min_val, max_val = np.min(audio), np.max(audio)
+    print(f"Preprocessing: Min/Max JUST before HPSS: {min_val}/{max_val}")
     harmonic, _ = librosa.effects.hpss(audio)
-
+    print("Preprocessing: HPSS applied. compute CQT...")
     # Compute CQT for the harmonic
     cqt = librosa.amplitude_to_db(librosa.cqt(harmonic, sr=sr), ref=np.max)
     return cqt
