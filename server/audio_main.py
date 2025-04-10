@@ -1,17 +1,17 @@
 import time
 import multiprocessing as mp
-# Import necessary components from your other modules
 from server import audio_stream
 from server import audio_buffer
-from server import audio_prep # Now includes the worker function definition
+from server import audio_prep
+from keras import models
+import numpy as np
 
-# Assuming your model loading/prediction logic is separate
-# from model import prediction_model
 
 # --- Main Execution Guard ---
 if __name__ == '__main__':
     print("Starting application...")
-
+    print("Loading prediction model...")
+    prediction_model = models.load_model("/Users/alonmor/PycharmProjects/guitar-tabs-classification/models/model.h5")
     # --- Set Multiprocessing Start Method ---
     # 'spawn' is generally safer and more consistent across platforms than 'fork'
     try:
@@ -97,10 +97,10 @@ if __name__ == '__main__':
             try:
                 processed_result = process_output_queue.get_nowait()
                 print(f"MainLoop: Received processed result (shape {processed_result.shape}).")
-
-                # !!! TODO: Feed processed_result to your model !!!
-                # prediction = prediction_model.predict(processed_result)
-                # print(f"Prediction: {prediction}")
+                processed_result = np.expand_dims(processed_result, axis=2)
+                processed_result = np.expand_dims(processed_result, axis=0)
+                prediction = prediction_model.predict(processed_result)
+                print(f"Prediction: {prediction}")
 
             except mp.queues.Empty: # Requires importing queue package as mp.queues
                 # No result ready from the worker yet, continue loop
