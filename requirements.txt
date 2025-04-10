@@ -1,20 +1,22 @@
 # Web server and templating
-Flask==2.2.5
-markupsafe==2.1.2
+Flask~=3.1.0
+markupsafe~=3.0.2
 
 # Deep Learning & Model Building
-tensorflow==2.12.0
-keras==2.12.0
+tensorflow~=2.19.0
+keras~=3.9.1
 
 # Data processing and scientific computing
-numpy==1.23.5
+numpy~=2.0.2
 scipy==1.9.3
 
 # Audio processing (likely needed for preprocessing, e.g., extracting features from audio)
-librosa==0.10.0
+librosa~=0.11.0
 
 # Machine Learning utilities (e.g., train/test split)
-scikit-learn==1.2.2
+scikit-learn~=1.6.1
 
 # Visualization (if used in notebooks or src/visualization.py)
-matplotlib==3.6.3
+matplotlib~=3.9.4
+
+pyaudio~=0.2.14
