@@ -1,8 +1,7 @@
-import os
 import numpy as np
 from sklearn.model_selection import train_test_split
-from src.data_loader import get_data_dir, get_xy
-from model import build_model
+from src.data_utils.data_loader import get_data_dir, get_xy
+from src.model.model import build_model
 from src.visualization import ROOT_DIR
 DATA_PATH = ROOT_DIR + "/data/preprocessed/"
 

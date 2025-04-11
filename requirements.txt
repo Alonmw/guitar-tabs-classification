@@ -22,3 +22,4 @@ matplotlib~=3.9.4
 pyaudio~=0.2.14
 pydub~=0.25.1
 sounddevice~=0.5.1
+soundfile~=0.13.1

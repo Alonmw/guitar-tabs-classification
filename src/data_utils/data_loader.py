@@ -4,7 +4,7 @@ For each file, it computes the normalized CQT spectrogram, expands its dimension
 and saves it as a NumPy array in the corresponding output directory, 
 preserving the directory structure.
 """
-from src.preprocessing import preprocess_file
+from src.data_utils.preprocessing import preprocess_file
 import os
 import numpy as np
 from sklearn.preprocessing import LabelEncoder

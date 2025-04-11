@@ -28,17 +28,11 @@ except ImportError:
 def audio_to_cqt(audio, sr):
     # ... (Your implementation from before) ...
     try:
-        print("Preprocessing: Applying HPSS...")
         if not np.issubdtype(audio.dtype, np.floating):
              audio = audio.astype(np.float32)
         harmonic, _ = librosa.effects.hpss(audio)
-        print("Preprocessing: HPSS complete.")
-        print("Preprocessing: Computing CQT...")
         cqt = librosa.cqt(harmonic, sr=sr)
-        print("Preprocessing: CQT computed.")
-        print("Preprocessing: Converting CQT to dB...")
         cqt_db = librosa.amplitude_to_db(cqt, ref=np.max)
-        print("Preprocessing: CQT dB conversion complete.")
         return cqt_db
     except Exception as e:
         print(f"Preprocessing: ERROR inside audio_to_cqt: {e}")
@@ -48,15 +42,12 @@ def audio_to_cqt(audio, sr):
 def normalize_cqt(cqt):
     # ... (Your implementation from before with std dev check) ...
     try:
-        print("Preprocessing: Normalizing CQT...")
         mean = np.mean(cqt)
         std = np.std(cqt)
-        print(f"Preprocessing: CQT Mean={mean}, StdDev={std}")
         if std < 1e-8:
             print("Preprocessing: Warning - CQT std dev near zero. Returning zeros.")
             return np.zeros_like(cqt)
         cqt_normalized = (cqt - mean) / std
-        print("Preprocessing: Normalization complete.")
         return cqt_normalized
     except Exception as e:
         print(f"Preprocessing: ERROR inside normalize_cqt: {e}")
@@ -68,7 +59,6 @@ def preprocess_buffer(audio_buffer: np.ndarray, sample_rate: int):
     (Existing function) Preprocesses an in-memory audio buffer.
     """
     # ... (Your existing validation and logic calling audio_to_cqt, normalize_cqt) ...
-    print(f"Audio Prep: Received buffer shape: {audio_buffer.shape}, dtype: {audio_buffer.dtype}")
     if not isinstance(audio_buffer, np.ndarray) or audio_buffer.ndim != 1:
          print(f"Error: Invalid buffer dimensions: {audio_buffer.ndim}. Expected 1.")
          return None
@@ -78,20 +68,15 @@ def preprocess_buffer(audio_buffer: np.ndarray, sample_rate: int):
 
     try:
          audio_buffer_float = audio_buffer.astype(np.float32)
-         print(f"Audio Prep: Converted buffer to dtype: {audio_buffer_float.dtype}")
     except Exception as e:
          print(f"Audio Prep: ERROR during float conversion: {e}")
          return None
 
     try:
-        print("Audio Prep: Calling audio_to_cqt...")
         cqt = audio_to_cqt(audio_buffer_float, sr=sample_rate)
-        print("Audio Prep: audio_to_cqt call finished.")
         if cqt is None: return None # Propagate failure
 
-        print("Audio Prep: Calling normalize_cqt...")
         cqt_normalized = normalize_cqt(cqt)
-        print("Audio Prep: normalize_cqt call finished.")
         if cqt_normalized is None: return None # Propagate failure
 
         return cqt_normalized

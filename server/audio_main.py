@@ -5,14 +5,16 @@ from server import audio_buffer
 from server import audio_prep
 from keras import models
 import numpy as np
-from src.prediction_handler import get_tab_output
+from src.model.prediction_handler import get_tab_output
+from src.visualization import ROOT_DIR
 
-
+MODEL_NAME = "model_updated.h5"
+MODEL_PATH = ROOT_DIR + "/models/" + MODEL_NAME
 # --- Main Execution Guard ---
 if __name__ == '__main__':
     print("Starting application...")
     print("Loading prediction model...")
-    prediction_model = models.load_model("/Users/alonmor/PycharmProjects/guitar-tabs-classification/models/model_updated.h5")
+    prediction_model = models.load_model(MODEL_PATH)
     # --- Set Multiprocessing Start Method ---
     # 'spawn' is generally safer and more consistent across platforms than 'fork'
     try:
@@ -40,7 +42,7 @@ if __name__ == '__main__':
 
     # --- Allow Buffers to Fill Slightly ---
     print("Allowing initial buffer fill...")
-    time.sleep(2.5)  # Adjust as needed
+    time.sleep(3)  # Adjust as needed
 
     # --- Start Buffer Filling Thread (using threading as before) ---
     try:
@@ -111,7 +113,7 @@ if __name__ == '__main__':
 
             # 4. Control loop speed
             # Adjust sleep time based on how quickly you need results vs CPU usage
-            time.sleep(0.05) # Example: Check ~20 times per second
+            time.sleep(0.02) # Example: Check ~20 times per second
 
     except KeyboardInterrupt:
         print("\nCtrl+C detected. Shutting down...")
