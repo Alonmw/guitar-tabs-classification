@@ -9,8 +9,7 @@ This list outlines planned improvements and remaining tasks for the project.
     - [ ] Update `WINDOW_SIZE` constant in `server/audio_buffer.py`.
     - [ ] Adjust related buffer logic if needed.
 - [ ] **Reformat Training Data:**
-    - [ ] Use `extract_onset_chunks.py` (for string sounds) and potentially modified logic for negative sounds (random/varied chunks) to create a new dataset based on the shorter window size.
-    - [ ] Ensure adequate data volume and diversity, especially for the negative class.
+    - [ ] Use data extraction scripts (`extract_onset_chunks.py`, `extract_multi_onset_chunks.py`) to create datasets based on the new shorter window size. Ensure sufficient and diverse data, especially for the negative class.
 - [ ] **Adapt Preprocessing:**
     - [ ] In `src/preprocessing.py` / `server/audio_prep.py`: Adjust CQT parameters for the shorter window OR switch to Mel Spectrograms (recommended).
     * [ ] Ensure `preprocess_buffer` function works correctly with the new features/window size.
@@ -34,6 +33,18 @@ This list outlines planned improvements and remaining tasks for the project.
 - [ ] **Refine Class Mapping:**
     - [ ] Double-check and confirm the `MODEL_INDEX_TO_STRING_NAME` and `OUTPUT_TAB_ORDER` mappings used in `src/model/prediction_handler.py` are correct, especially after retraining.
 
+## Model Development & Evaluation (*New Section*)
+
+- [ ] **Create/Maintain EDA & Evaluation Notebook:**
+    - [ ] Structure a Jupyter Notebook (`notebooks/EDA_and_Evaluation.ipynb`) for analysis.
+    - [ ] Load processed data chunks (using `src/data_utils/data_loader.py` if applicable).
+    - [ ] Perform EDA: Visualize features (spectrograms), check class balance, analyze audio properties of chunks.
+    - [ ] Load specific trained model checkpoints (`models/`).
+    - [ ] Evaluate on a dedicated test set: Calculate overall accuracy, precision, recall, F1-score (especially **per-class** metrics).
+    - [ ] Generate and visualize a Confusion Matrix to understand misclassifications.
+    - [ ] Implement functionality to inspect examples the model gets wrong (e.g., listen to audio, view spectrogram).
+    - [ ] Keep the notebook organized for reusability with different datasets/models.
+
 ## Web Application Features & UI
 
 - [ ] **UI Enhancements:**
@@ -56,7 +67,3 @@ This list outlines planned improvements and remaining tasks for the project.
 - [ ] **Review Multiprocessing:** (Low Priority) After other optimizations, decide if re-introducing multiprocessing for preprocessing is necessary and feasible within the Flask/SocketIO context.
 
 ---
-
-Does this TODO list capture the main points we discussed and align with your priorities? We can adjust it as needed.
-
-Since the basic app is running, the most impactful next steps would likely be tackling the **Performance & Latency** section (shorter windows, data prep, retraining) or the **Prediction Stability** section (implementing the robust handler). Which area would you like to focus on next when we resume?
