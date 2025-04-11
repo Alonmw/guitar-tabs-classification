@@ -9,7 +9,10 @@ import os
 import numpy as np
 from sklearn.preprocessing import LabelEncoder
 
-PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+from src.visualization import ROOT_DIR
+
+
+PROJECT_ROOT = ROOT_DIR
 _data_path = PROJECT_ROOT + "/data/raw/"
 _output_path = PROJECT_ROOT + "/data/preprocessed/"
 NEGATIVE_CLASS = "negatives"
@@ -90,10 +93,13 @@ def get_xy(data_dir):
         for value in values:
             X.append(value)
             y.append(key)
+    print(y)
     return (
         np.array(X),
         LabelEncoder().fit_transform(y)
     )
 
 if __name__ == '__main__':
-    pass
+    print(_output_path)
+    getDataDir = get_data_dir(_output_path)
+    get_xy(getDataDir)

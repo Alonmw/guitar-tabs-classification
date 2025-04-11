@@ -4,19 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa014702-0841-4831-a890-6abeb62629e3" name="Changes" comment="Added negative class to the model saved as &quot;updated_model.h5&quot;&#10;restructured the data to ensure shape (84,87,1) across all preprocessed files.&#10;added basic prediction_handler.py that handles the softmax output from the model and returns guitar tabs.&#10;tested successfully audio_main.py">
+    <list default="true" id="fa014702-0841-4831-a890-6abeb62629e3" name="Changes" comment="Refactor project structure and improve audio preprocessing.&#10;&#10;Reorganized source code into more modular directories for better maintainability, including `data_utils`, `model`, and `data_collection_scripts`. Enhanced audio preprocessing by removing redundant debug prints in `audio_prep.py`. Added a script for extracting onset-based audio chunks and updated dependencies in `requirements.txt`.">
+      <change afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/audio_processor.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebooks/preprocessing.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/preprocessing.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/notebooks/testing.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/testing.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/model_updated.h5" beforeDir="false" afterPath="$PROJECT_DIR$/models/updated_model.h5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/audio_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/audio_main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/audio_prep.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/audio_prep.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_utils/data_loader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/model_loader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/prediction_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/prediction_handler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/preprocessing.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_utils/preprocessing.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/split_wav_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_collection_scripts/split_wav_script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data_utils/data_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_utils/data_loader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/prediction_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/prediction_handler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/train.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +30,7 @@
       <list>
         <option value="TypeScript File" />
         <option value="Jupyter Notebook" />
+        <option value="HTML File" />
         <option value="Python Script" />
       </list>
     </option>
@@ -87,6 +90,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "Python.app.executor": "Run",
     "Python.audio_main.executor": "Run",
     "Python.audio_prep.executor": "Run",
@@ -119,7 +123,7 @@
       <recent name="C:\Users\User\PycharmProjects\guitar-tabs-classification\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.audio_main">
+  <component name="RunManager" selected="Python.prediction_handler">
     <configuration name="audio_main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="guitar-tabs-classification" />
       <option name="ENV_FILES" value="" />
@@ -237,10 +241,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.audio_main" />
         <item itemvalue="Python.prediction_handler" />
-        <item itemvalue="Python.train" />
         <item itemvalue="Python.data_loader" />
+        <item itemvalue="Python.audio_main" />
+        <item itemvalue="Python.train" />
         <item itemvalue="Python.split_wav_script" />
       </list>
     </recent_temporary>
@@ -349,7 +353,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744379967326</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Refactor project structure and improve audio preprocessing.&#10;&#10;Reorganized source code into more modular directories for better maintainability, including `data_utils`, `model`, and `data_collection_scripts`. Enhanced audio preprocessing by removing redundant debug prints in `audio_prep.py`. Added a script for extracting onset-based audio chunks and updated dependencies in `requirements.txt`.">
+      <option name="closed" value="true" />
+      <created>1744387326916</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1744387326916</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -378,7 +390,9 @@
     <MESSAGE value="Test version - try to run on Windows os to see if the root cause of audio streaming crash is related to macos incompatibility" />
     <MESSAGE value="Switch to PyAudio for audio streaming and integrate predictions&#10;&#10;Replaced Sounddevice with PyAudio in `audio_stream.py` for improved compatibility and functionality. Added prediction handling logic in `audio_main.py`, including loading a Keras model and processing predictions. Updated project configuration files to reflect these changes and support cross-platform testing." />
     <MESSAGE value="Added negative class to the model saved as &quot;updated_model.h5&quot;&#10;restructured the data to ensure shape (84,87,1) across all preprocessed files.&#10;added basic prediction_handler.py that handles the softmax output from the model and returns guitar tabs.&#10;tested successfully audio_main.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added negative class to the model saved as &quot;updated_model.h5&quot;&#10;restructured the data to ensure shape (84,87,1) across all preprocessed files.&#10;added basic prediction_handler.py that handles the softmax output from the model and returns guitar tabs.&#10;tested successfully audio_main.py" />
+    <MESSAGE value="Add shelved changes and update task metadata&#10;&#10;Saved uncommitted changes to a shelved patch for safe keeping before checkout and update. Adjusted task metadata, including duration updates and addition of a new task entry for better tracking." />
+    <MESSAGE value="Refactor project structure and improve audio preprocessing.&#10;&#10;Reorganized source code into more modular directories for better maintainability, including `data_utils`, `model`, and `data_collection_scripts`. Enhanced audio preprocessing by removing redundant debug prints in `audio_prep.py`. Added a script for extracting onset-based audio chunks and updated dependencies in `requirements.txt`." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor project structure and improve audio preprocessing.&#10;&#10;Reorganized source code into more modular directories for better maintainability, including `data_utils`, `model`, and `data_collection_scripts`. Enhanced audio preprocessing by removing redundant debug prints in `audio_prep.py`. Added a script for extracting onset-based audio chunks and updated dependencies in `requirements.txt`." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/guitar_tabs_classification$audio_stream.coverage" NAME="audio_stream Coverage Results" MODIFIED="1744193800099" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/server" />
@@ -386,9 +400,9 @@
     <SUITE FILE_PATH="coverage/guitar_tabs_classification$audio_prep.coverage" NAME="audio_prep Coverage Results" MODIFIED="1744273648706" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/server" />
     <SUITE FILE_PATH="coverage/guitar_tabs_classification$split_wav_script.coverage" NAME="split_wav_script Coverage Results" MODIFIED="1744373008815" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/guitar_tabs_classification$test.coverage" NAME="test Coverage Results" MODIFIED="1744289486585" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/server" />
-    <SUITE FILE_PATH="coverage/guitar_tabs_classification$data_loader.coverage" NAME="data_loader Coverage Results" MODIFIED="1744377697396" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/guitar_tabs_classification$data_loader.coverage" NAME="data_loader Coverage Results" MODIFIED="1744395049922" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/guitar_tabs_classification$preprocessing.coverage" NAME="preprocessing Coverage Results" MODIFIED="1742469973824" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
-    <SUITE FILE_PATH="coverage/guitar_tabs_classification$prediction_handler.coverage" NAME="prediction_handler Coverage Results" MODIFIED="1744378332849" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/guitar_tabs_classification$prediction_handler.coverage" NAME="prediction_handler Coverage Results" MODIFIED="1744395673864" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/guitar_tabs_classification$audio_main.coverage" NAME="audio_main Coverage Results" MODIFIED="1744382284760" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/server" />
     <SUITE FILE_PATH="coverage/guitar_tabs_classification$app.coverage" NAME="app Coverage Results" MODIFIED="1743331505106" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/server" />
     <SUITE FILE_PATH="coverage/guitar_tabs_classification$train.coverage" NAME="train Coverage Results" MODIFIED="1744377755066" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />

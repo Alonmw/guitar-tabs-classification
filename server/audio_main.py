@@ -8,7 +8,7 @@ import numpy as np
 from src.model.prediction_handler import get_tab_output
 from src.visualization import ROOT_DIR
 
-MODEL_NAME = "model_updated.h5"
+MODEL_NAME = "updated_model.h5"
 MODEL_PATH = ROOT_DIR + "/models/" + MODEL_NAME
 # --- Main Execution Guard ---
 if __name__ == '__main__':
