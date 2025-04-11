@@ -17,14 +17,14 @@ This project aims to create a **real-time guitar *tablature* classifier**. It ca
 * Utility scripts (`src/data_collection_scripts/`) for preparing audio data (e.g., extracting chunks based on onsets).
 
 ## Project Structure
-
+```
 guitar-tabs-classification/
 ├── .venv/                      # Python virtual environment (usually not committed)
 ├── data/                       # Directory for storing raw and/or processed datasets
 ├── models/                     # Contains trained model files (e.g., updated_model.h5)
 ├── notebooks/                  # Jupyter notebooks for experimentation, EDA (currently outdated)
 ├── server/                     # Core backend Flask application
-│   ├── init.py             # Makes 'server' a Python package
+│   ├── __init__.py             # Makes 'server' a Python package
 │   ├── app.py                  # Main Flask app, SocketIO setup, routes, background task coordination
 │   ├── audio_stream.py         # Handles microphone input --> audio_queue
 │   ├── audio_buffer.py         # Consumes audio_queue --> provides analysis window buffer
@@ -35,7 +35,7 @@ guitar-tabs-classification/
 │   └── templates/              # HTML templates for the web UI
 │       └── index.html
 ├── src/                        # Source code for non-server specific logic
-│   ├── init.py             # Makes 'src' a Python package
+│   ├── __init__.py             # Makes 'src' a Python package
 │   ├── data_collection_scripts/ # Scripts to prepare audio data chunks
 │   │   ├── extract_multi_onset_chunks.py
 │   │   └── split_wav_script.py
@@ -43,12 +43,15 @@ guitar-tabs-classification/
 │   │   ├── data_loader.py      # Potential data loading logic
 │   │   └── preprocessing.py    # Core preprocessing functions (e.g., CQT/Mel)
 │   └── model/                  # Model definition, training, evaluation logic
-│       ├── init.py         # Makes 'model' a Python package
+│       ├── __init__.py         # Makes 'model' a Python package
 │       ├── model_loader.py     # Utility to load the trained Keras model
 │       └── prediction_handler.py # Converts model output (softmax) to desired tab format
 │       └── (model.py, train.py likely belong here too)
 ├── run.py                      # Script to start the Flask/SocketIO server
 ├── requirements.txt            # Project dependencies for pip
+└── README.md                   # This file
+```
+
 ## Setup
 
 1.  **Clone the repository:**
