@@ -19,34 +19,36 @@ This project aims to create a **real-time guitar *tablature* classifier**. It ca
 ## Project Structure
 
 guitar-tabs-classification/
-├── .venv/                  # Python virtual environment
-├── data/                   # Directory for storing raw/processed datasets
-├── models/                 # Contains trained model files (e.g., updated_model.h5)
-├── notebooks/              # Jupyter notebooks for experimentation (currently outdated)
-├── server/                 # Core backend application
-│   ├── init.py
-│   ├── app.py              # Main Flask app, SocketIO setup, routes, background task coordination
-│   ├── audio_stream.py     # Handles microphone input --> audio_queue
-│   ├── audio_buffer.py     # Consumes audio_queue --> provides analysis window buffer
-│   ├── audio_prep.py       # Wrapper for calling preprocessing logic
-│   ├── audio_processor.py  # Runs the main background audio processing loop
-│   ├── static/             # CSS, client-side JS files (to be added properly)
-│   └── templates/          # HTML templates for the web UI (index.html)
-├── src/                    # Source code for non-server specific logic
-│   ├── init.py
+├── .venv/                      # Python virtual environment (usually not committed)
+├── data/                       # Directory for storing raw and/or processed datasets
+├── models/                     # Contains trained model files (e.g., updated_model.h5)
+├── notebooks/                  # Jupyter notebooks for experimentation, EDA (currently outdated)
+├── server/                     # Core backend Flask application
+│   ├── init.py             # Makes 'server' a Python package
+│   ├── app.py                  # Main Flask app, SocketIO setup, routes, background task coordination
+│   ├── audio_stream.py         # Handles microphone input --> audio_queue
+│   ├── audio_buffer.py         # Consumes audio_queue --> provides analysis window buffer
+│   ├── audio_prep.py           # Wrapper for calling preprocessing logic
+│   ├── audio_processor.py      # Runs the main background audio processing loop
+│   ├── static/                 # Static files (CSS, client-side JS) for the web UI
+│   │   └── (empty or css/ js/ subdirs)
+│   └── templates/              # HTML templates for the web UI
+│       └── index.html
+├── src/                        # Source code for non-server specific logic
+│   ├── init.py             # Makes 'src' a Python package
 │   ├── data_collection_scripts/ # Scripts to prepare audio data chunks
 │   │   ├── extract_multi_onset_chunks.py
 │   │   └── split_wav_script.py
-│   ├── data_utils/         # Data loading utilities (e.g., data_loader.py)
-│   │   └── preprocessing.py  # Core preprocessing functions (e.g., CQT)
-│   └── model/              # Model definition, training, handling
-│       ├── init.py
-│       ├── model_loader.py   # Utility to load the trained Keras model
-│       └── prediction_handler.py # Converts model output (softmax) to tab format
-│       └── (model.py, train.py likely here too)
-├── run.py                  # Script to start the Flask/SocketIO server
-└── requirements.txt        # Project dependencies
-
+│   ├── data_utils/             # Data loading and utility functions
+│   │   ├── data_loader.py      # Potential data loading logic
+│   │   └── preprocessing.py    # Core preprocessing functions (e.g., CQT/Mel)
+│   └── model/                  # Model definition, training, evaluation logic
+│       ├── init.py         # Makes 'model' a Python package
+│       ├── model_loader.py     # Utility to load the trained Keras model
+│       └── prediction_handler.py # Converts model output (softmax) to desired tab format
+│       └── (model.py, train.py likely belong here too)
+├── run.py                      # Script to start the Flask/SocketIO server
+├── requirements.txt            # Project dependencies for pip
 ## Setup
 
 1.  **Clone the repository:**
