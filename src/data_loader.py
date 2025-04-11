@@ -1,7 +1,8 @@
 """
-Loads all the WAV files data in /data/raw/.
-Saves the data in /data/preprocessed/ after preprocessing it to CQT spectrograms
-in form of Numpy arrays.
+Preprocesses all WAV files in the provided input directory.
+For each file, it computes the normalized CQT spectrogram, expands its dimensions, 
+and saves it as a NumPy array in the corresponding output directory, 
+preserving the directory structure.
 """
 from src.preprocessing import preprocess_file
 import os
@@ -9,11 +10,26 @@ import numpy as np
 from sklearn.preprocessing import LabelEncoder
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-data_path = PROJECT_ROOT + "/data/raw/"
-output_path = PROJECT_ROOT + "/data/preprocessed/"
+_data_path = PROJECT_ROOT + "/data/raw/"
+_output_path = PROJECT_ROOT + "/data/preprocessed/"
+NEGATIVE_CLASS = "negatives"
 
-print(data_path)
-def load_raw_data():
+
+def preprocess_and_save_wav_files(data_path, output_path):
+    """
+    Processes all WAV files in the provided input directory to extract the normalized
+    Constant-Q Transform (CQT) spectrogram, expands dimensions to ensure the
+    result conforms to shape (84, 87, 1), and saves the processed data as NumPy arrays
+    in the corresponding output directory while preserving the directory structure.
+
+    Args:
+        data_path (str): Path to the input directory containing WAV files.
+        output_path (str): Path to the directory where processed NumPy files will be saved.
+
+    Returns:
+        None
+    """
+
     for dirpath, _, filenames in os.walk(data_path):
         for filename in filenames:
             if filename.endswith(".wav"):
@@ -27,29 +43,42 @@ def load_raw_data():
                 output_file_path = output_folder + "/" + filename
 
                 os.makedirs(output_folder, exist_ok=True)
+                # Fix saved file shape to (84,87,1)
+                np.save(output_file_path, np.expand_dims(cqt_normalized, axis=-1))
 
-                np.save(output_file_path, cqt_normalized)
 
-def get_data_dir(pick_flag = False):
+def get_data_dir(data_path, pick_flag = False):
     """
-        function that returns preprocessed data as np directory.
-        flag determines whether to keep f_pick and n_pick as keys.
+    Retrieves preprocessed data stored as NumPy arrays from the specified directory.
+    Groups the data by subdirectory names as dictionary keys and organizes
+    the data into a NumPy array. If `pick_flag` is True, uses the innermost
+    directory name; otherwise, uses the parent directory name as the key.
+    
+    Args:
+        data_path (str): Path to the directory containing preprocessed .npy files.
+        pick_flag (bool): Determines whether to use innermost or parent directory
+                          name for grouping data.
+    
+    Returns:
+        dict: A dictionary with keys as directory names and values as lists of
+              NumPy arrays.
     """
     data = {}
     key = ''
     values = []
 
-    for dirpath, _, files in os.walk(output_path):
+    for dirpath, _, files in os.walk(data_path):
         for file in files:
             if file.endswith(".npy"):
                 file_path = os.path.join(dirpath, file)
                 values.append(np.load(file_path))
         if values:
-            if pick_flag:
+            if os.path.basename(dirpath) == NEGATIVE_CLASS:
+                key = NEGATIVE_CLASS
+            elif pick_flag:
                 key = os.path.basename(dirpath)
             else:
                 key = os.path.basename(os.path.dirname(dirpath))
-            values = np.expand_dims(values, axis=-1)
             data.setdefault(key, []).extend(values)
             values = []
     return data
@@ -67,5 +96,4 @@ def get_xy(data_dir):
     )
 
 if __name__ == '__main__':
-    data = get_data_dir()
-    print(data['A0'][0].shape)
+    pass

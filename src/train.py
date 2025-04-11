@@ -1,16 +1,16 @@
 import os
 import numpy as np
 from sklearn.model_selection import train_test_split
-from src.data_loader import get_data_dir, get_xy  # Assuming this is your function in data_loader.py
-from model import build_model  # Assuming this is your function in model.py
+from src.data_loader import get_data_dir, get_xy
+from model import build_model
 from src.visualization import ROOT_DIR
+DATA_PATH = ROOT_DIR + "/data/preprocessed/"
 
-
-def load_and_split():
+def load_and_split(data_path = DATA_PATH):
     # Step 1: Load preprocessed data
     print("Loading preprocessed data...")
-    data_dir = get_data_dir()
-    X, y = get_xy(data_dir)  # Assuming this returns features (x_data) and labels (y_data)
+    data_dir = get_data_dir(data_path)
+    X, y = get_xy(data_dir)
     print(f'X shape: {X.shape}, y shape: {y.shape}')
     # Step 2: Split the data into training, validation, and test sets
     print("Splitting data into training, validation, and test sets...")
@@ -52,7 +52,7 @@ def train_and_save(x_train, y_train, x_val, y_val, x_test, y_test):
     print(f"Test Accuracy: {test_accuracy}")
 
     # Save the final model
-    final_model_path = ROOT_DIR + '/models/model.h5'
+    final_model_path = ROOT_DIR + '/models/model_updated.h5'
     model.save(final_model_path)
     print(f"Model saved to {final_model_path}")
 
