@@ -51,7 +51,7 @@ guitar-tabs-classification/
 
 1.  **Clone the repository:**
     ```bash
-    git clone <your-repository-url>
+    git clone https://github.com/Alonmw/guitar-tabs-classification.git
     cd guitar-tabs-classification
     ```
 2.  **Create a Python virtual environment:**
