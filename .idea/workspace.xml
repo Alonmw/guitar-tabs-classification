@@ -4,7 +4,147 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fa014702-0841-4831-a890-6abeb62629e3" name="Changes" comment="Switch to PyAudio for audio streaming and integrate predictions&#10;&#10;Replaced Sounddevice with PyAudio in `audio_stream.py` for improved compatibility and functionality. Added prediction handling logic in `audio_main.py`, including loading a Keras model and processing predictions. Updated project configuration files to reflect these changes and support cross-platform testing." />
+    <list default="true" id="fa014702-0841-4831-a890-6abeb62629e3" name="Changes" comment="Switch to PyAudio for audio streaming and integrate predictions&#10;&#10;Replaced Sounddevice with PyAudio in `audio_stream.py` for improved compatibility and functionality. Added prediction handling logic in `audio_main.py`, including loading a Keras model and processing predictions. Updated project configuration files to reflect these changes and support cross-platform testing.">
+      <change afterPath="$PROJECT_DIR$/src/split_wav_script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/A0/A0-fpick/A0_fingerpick-01.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/A0/A0-fpick/A0_fingerpick-01.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/A0/A0-fpick/A0_fingerpick-02.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/A0/A0-fpick/A0_fingerpick-02.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/A0/A0-fpick/A0_fingerpick-03.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/A0/A0-fpick/A0_fingerpick-03.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/A0/A0-fpick/A0_fingerpick-04.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/A0/A0-fpick/A0_fingerpick-04.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/A0/A0-fpick/A0_fingerpick-05.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/A0/A0-fpick/A0_fingerpick-05.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/A0/A0-fpick/A0_fingerpick-06.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/A0/A0-fpick/A0_fingerpick-06.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/A0/A0-fpick/A0_fingerpick-07.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/A0/A0-fpick/A0_fingerpick-07.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/A0/A0-fpick/A0_fingerpick-08.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/A0/A0-fpick/A0_fingerpick-08.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/A0/A0-fpick/A0_fingerpick-09.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/A0/A0-fpick/A0_fingerpick-09.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/A0/A0-fpick/A0_fingerpick-10.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/A0/A0-fpick/A0_fingerpick-10.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/A0/A0-fpick/A0_fingerpick-11.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/A0/A0-fpick/A0_fingerpick-11.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/A0/A0-npick/A0_nailpick-01.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/A0/A0-npick/A0_nailpick-01.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/A0/A0-npick/A0_nailpick-02.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/A0/A0-npick/A0_nailpick-02.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/A0/A0-npick/A0_nailpick-03.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/A0/A0-npick/A0_nailpick-03.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/A0/A0-npick/A0_nailpick-04.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/A0/A0-npick/A0_nailpick-04.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/A0/A0-npick/A0_nailpick-05.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/A0/A0-npick/A0_nailpick-05.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/A0/A0-npick/A0_nailpick-06.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/A0/A0-npick/A0_nailpick-06.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/A0/A0-npick/A0_nailpick-07.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/A0/A0-npick/A0_nailpick-07.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/A0/A0-npick/A0_nailpick-08.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/A0/A0-npick/A0_nailpick-08.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/A0/A0-npick/A0_nailpick-09.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/A0/A0-npick/A0_nailpick-09.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/A0/A0-npick/A0_nailpick-10.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/A0/A0-npick/A0_nailpick-10.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/B0/B0-fpick/B0_fingerpick-01.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/B0/B0-fpick/B0_fingerpick-01.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/B0/B0-fpick/B0_fingerpick-02.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/B0/B0-fpick/B0_fingerpick-02.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/B0/B0-fpick/B0_fingerpick-03.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/B0/B0-fpick/B0_fingerpick-03.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/B0/B0-fpick/B0_fingerpick-04.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/B0/B0-fpick/B0_fingerpick-04.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/B0/B0-fpick/B0_fingerpick-05.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/B0/B0-fpick/B0_fingerpick-05.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/B0/B0-fpick/B0_fingerpick-06.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/B0/B0-fpick/B0_fingerpick-06.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/B0/B0-fpick/B0_fingerpick-07.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/B0/B0-fpick/B0_fingerpick-07.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/B0/B0-fpick/B0_fingerpick-08.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/B0/B0-fpick/B0_fingerpick-08.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/B0/B0-fpick/B0_fingerpick-09.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/B0/B0-fpick/B0_fingerpick-09.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/B0/B0-fpick/B0_fingerpick-10.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/B0/B0-fpick/B0_fingerpick-10.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/B0/B0-fpick/B0_fingerpick-11.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/B0/B0-fpick/B0_fingerpick-11.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/B0/B0-fpick/B0_fingerpick-12.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/B0/B0-fpick/B0_fingerpick-12.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/B0/B0-npick/B0_nailpick-01.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/B0/B0-npick/B0_nailpick-01.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/B0/B0-npick/B0_nailpick-02.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/B0/B0-npick/B0_nailpick-02.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/B0/B0-npick/B0_nailpick-03.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/B0/B0-npick/B0_nailpick-03.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/B0/B0-npick/B0_nailpick-04.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/B0/B0-npick/B0_nailpick-04.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/B0/B0-npick/B0_nailpick-05.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/B0/B0-npick/B0_nailpick-05.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/B0/B0-npick/B0_nailpick-06.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/B0/B0-npick/B0_nailpick-06.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/B0/B0-npick/B0_nailpick-07.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/B0/B0-npick/B0_nailpick-07.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/B0/B0-npick/B0_nailpick-08.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/B0/B0-npick/B0_nailpick-08.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/B0/B0-npick/B0_nailpick-09.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/B0/B0-npick/B0_nailpick-09.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/B0/B0-npick/B0_nailpick-10.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/B0/B0-npick/B0_nailpick-10.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/B0/B0-npick/B0_nailpick-11.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/B0/B0-npick/B0_nailpick-11.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/D0/D0-fpick/D0_fingerpick-01.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/D0/D0-fpick/D0_fingerpick-01.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/D0/D0-fpick/D0_fingerpick-02.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/D0/D0-fpick/D0_fingerpick-02.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/D0/D0-fpick/D0_fingerpick-03.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/D0/D0-fpick/D0_fingerpick-03.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/D0/D0-fpick/D0_fingerpick-04.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/D0/D0-fpick/D0_fingerpick-04.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/D0/D0-fpick/D0_fingerpick-05.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/D0/D0-fpick/D0_fingerpick-05.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/D0/D0-fpick/D0_fingerpick-06.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/D0/D0-fpick/D0_fingerpick-06.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/D0/D0-fpick/D0_fingerpick-07.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/D0/D0-fpick/D0_fingerpick-07.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/D0/D0-fpick/D0_fingerpick-08.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/D0/D0-fpick/D0_fingerpick-08.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/D0/D0-fpick/D0_fingerpick-09.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/D0/D0-fpick/D0_fingerpick-09.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/D0/D0-fpick/D0_fingerpick-10.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/D0/D0-fpick/D0_fingerpick-10.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/D0/D0-npick/D0_nailpick-01.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/D0/D0-npick/D0_nailpick-01.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/D0/D0-npick/D0_nailpick-02.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/D0/D0-npick/D0_nailpick-02.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/D0/D0-npick/D0_nailpick-03.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/D0/D0-npick/D0_nailpick-03.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/D0/D0-npick/D0_nailpick-04.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/D0/D0-npick/D0_nailpick-04.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/D0/D0-npick/D0_nailpick-05.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/D0/D0-npick/D0_nailpick-05.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/D0/D0-npick/D0_nailpick-06.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/D0/D0-npick/D0_nailpick-06.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/D0/D0-npick/D0_nailpick-07.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/D0/D0-npick/D0_nailpick-07.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/D0/D0-npick/D0_nailpick-08.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/D0/D0-npick/D0_nailpick-08.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/D0/D0-npick/D0_nailpick-09.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/D0/D0-npick/D0_nailpick-09.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/D0/D0-npick/D0_nailpick-10.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/D0/D0-npick/D0_nailpick-10.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-fpick/Eb0_fingerpick-01.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-fpick/Eb0_fingerpick-01.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-fpick/Eb0_fingerpick-02.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-fpick/Eb0_fingerpick-02.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-fpick/Eb0_fingerpick-03.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-fpick/Eb0_fingerpick-03.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-fpick/Eb0_fingerpick-04.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-fpick/Eb0_fingerpick-04.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-fpick/Eb0_fingerpick-05.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-fpick/Eb0_fingerpick-05.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-fpick/Eb0_fingerpick-06.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-fpick/Eb0_fingerpick-06.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-fpick/Eb0_fingerpick-07.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-fpick/Eb0_fingerpick-07.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-fpick/Eb0_fingerpick-08.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-fpick/Eb0_fingerpick-08.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-fpick/Eb0_fingerpick-09.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-fpick/Eb0_fingerpick-09.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-fpick/Eb0_fingerpick-10.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-fpick/Eb0_fingerpick-10.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-fpick/Eb0_fingerpick-11.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-fpick/Eb0_fingerpick-11.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-fpick/Eb0_fingerpick-12.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-fpick/Eb0_fingerpick-12.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-fpick/Eb0_fingerpick-13.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-fpick/Eb0_fingerpick-13.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-fpick/Eb0_fingerpick-14.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-fpick/Eb0_fingerpick-14.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-fpick/Eb0_fingerpick-15.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-fpick/Eb0_fingerpick-15.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-fpick/Eb0_fingerpick-16.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-fpick/Eb0_fingerpick-16.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-npick/Eb0_nailpick-02.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-npick/Eb0_nailpick-02.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-npick/Eb0_nailpick-03.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-npick/Eb0_nailpick-03.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-npick/Eb0_nailpick-04.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-npick/Eb0_nailpick-04.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-npick/Eb0_nailpick-05.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-npick/Eb0_nailpick-05.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-npick/Eb0_nailpick-06.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-npick/Eb0_nailpick-06.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-npick/Eb0_nailpick-07.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-npick/Eb0_nailpick-07.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-npick/Eb0_nailpick-08.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-npick/Eb0_nailpick-08.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-npick/Eb0_nailpick-09.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-npick/Eb0_nailpick-09.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-npick/Eb0_nailpick-10.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/Eb0/Eb0-npick/Eb0_nailpick-10.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/G0/G0-fpick/G0_fingerpick-01.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/G0/G0-fpick/G0_fingerpick-01.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/G0/G0-fpick/G0_fingerpick-02.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/G0/G0-fpick/G0_fingerpick-02.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/G0/G0-fpick/G0_fingerpick-03.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/G0/G0-fpick/G0_fingerpick-03.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/G0/G0-fpick/G0_fingerpick-04.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/G0/G0-fpick/G0_fingerpick-04.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/G0/G0-fpick/G0_fingerpick-05.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/G0/G0-fpick/G0_fingerpick-05.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/G0/G0-fpick/G0_fingerpick-06.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/G0/G0-fpick/G0_fingerpick-06.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/G0/G0-fpick/G0_fingerpick-07.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/G0/G0-fpick/G0_fingerpick-07.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/G0/G0-fpick/G0_fingerpick-08.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/G0/G0-fpick/G0_fingerpick-08.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/G0/G0-fpick/G0_fingerpick-09.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/G0/G0-fpick/G0_fingerpick-09.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/G0/G0-fpick/G0_fingerpick-10.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/G0/G0-fpick/G0_fingerpick-10.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/G0/G0-fpick/G0_fingerpick-11.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/G0/G0-fpick/G0_fingerpick-11.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/G0/G0-npick/G0_nailpick-01.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/G0/G0-npick/G0_nailpick-01.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/G0/G0-npick/G0_nailpick-02.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/G0/G0-npick/G0_nailpick-02.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/G0/G0-npick/G0_nailpick-03.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/G0/G0-npick/G0_nailpick-03.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/G0/G0-npick/G0_nailpick-04.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/G0/G0-npick/G0_nailpick-04.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/G0/G0-npick/G0_nailpick-05.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/G0/G0-npick/G0_nailpick-05.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/G0/G0-npick/G0_nailpick-06.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/G0/G0-npick/G0_nailpick-06.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/G0/G0-npick/G0_nailpick-07.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/G0/G0-npick/G0_nailpick-07.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/G0/G0-npick/G0_nailpick-08.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/G0/G0-npick/G0_nailpick-08.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/G0/G0-npick/G0_nailpick-09.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/G0/G0-npick/G0_nailpick-09.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/G0/G0-npick/G0_nailpick-10.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/G0/G0-npick/G0_nailpick-10.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/G0/G0-npick/G0_nailpick-11.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/G0/G0-npick/G0_nailpick-11.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/G0/G0-npick/G0_nailpick-12.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/G0/G0-npick/G0_nailpick-12.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/e0/e0-fpick/e0_fingerpick-01.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/e0/e0-fpick/e0_fingerpick-01.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/e0/e0-fpick/e0_fingerpick-02.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/e0/e0-fpick/e0_fingerpick-02.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/e0/e0-fpick/e0_fingerpick-03.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/e0/e0-fpick/e0_fingerpick-03.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/e0/e0-fpick/e0_fingerpick-04.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/e0/e0-fpick/e0_fingerpick-04.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/e0/e0-fpick/e0_fingerpick-05.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/e0/e0-fpick/e0_fingerpick-05.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/e0/e0-fpick/e0_fingerpick-06.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/e0/e0-fpick/e0_fingerpick-06.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/e0/e0-fpick/e0_fingerpick-07.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/e0/e0-fpick/e0_fingerpick-07.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/e0/e0-fpick/e0_fingerpick-08.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/e0/e0-fpick/e0_fingerpick-08.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/e0/e0-fpick/e0_fingerpick-09.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/e0/e0-fpick/e0_fingerpick-09.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/e0/e0-fpick/e0_fingerpick-10.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/e0/e0-fpick/e0_fingerpick-10.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/e0/e0-npick/e0_nailpicking-01.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/e0/e0-npick/e0_nailpicking-01.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/e0/e0-npick/e0_nailpicking-02.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/e0/e0-npick/e0_nailpicking-02.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/e0/e0-npick/e0_nailpicking-03.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/e0/e0-npick/e0_nailpicking-03.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/e0/e0-npick/e0_nailpicking-04.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/e0/e0-npick/e0_nailpicking-04.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/e0/e0-npick/e0_nailpicking-05.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/e0/e0-npick/e0_nailpicking-05.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/e0/e0-npick/e0_nailpicking-06.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/e0/e0-npick/e0_nailpicking-06.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/e0/e0-npick/e0_nailpicking-07.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/e0/e0-npick/e0_nailpicking-07.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/e0/e0-npick/e0_nailpicking-08.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/e0/e0-npick/e0_nailpicking-08.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/e0/e0-npick/e0_nailpicking-09.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/e0/e0-npick/e0_nailpicking-09.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/preprocessed/e0/e0-npick/e0_nailpicking-10.npy" beforeDir="false" afterPath="$PROJECT_DIR$/data/preprocessed/e0/e0-npick/e0_nailpicking-10.npy" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/audio_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/audio_main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data_loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data_loader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/prediction_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/prediction_handler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/train.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,22 +184,22 @@
     &quot;assignee&quot;: &quot;Alonmw&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Alonmw/guitar-tabs-classification.git",
-    "accountId": "ab3962eb-65ca-42d7-ae7e-c35e1269463f"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Alonmw/guitar-tabs-classification.git&quot;,
+    &quot;accountId&quot;: &quot;ab3962eb-65ca-42d7-ae7e-c35e1269463f&quot;
   },
-  "recentNewPullRequestHead": {
-    "server": {
-      "useHttp": false,
-      "host": "github.com",
-      "port": null,
-      "suffix": null
+  &quot;recentNewPullRequestHead&quot;: {
+    &quot;server&quot;: {
+      &quot;useHttp&quot;: false,
+      &quot;host&quot;: &quot;github.com&quot;,
+      &quot;port&quot;: null,
+      &quot;suffix&quot;: null
     },
-    "owner": "Alonmw",
-    "repository": "guitar-tabs-classification"
+    &quot;owner&quot;: &quot;Alonmw&quot;,
+    &quot;repository&quot;: &quot;guitar-tabs-classification&quot;
   }
-}]]></component>
+}</component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
   </component>
@@ -79,13 +219,15 @@
     "Python.audio_prep.executor": "Run",
     "Python.audio_stream.executor": "Run",
     "Python.data_loader.executor": "Run",
+    "Python.prediction_handler.executor": "Run",
     "Python.preprocessing.executor": "Run",
+    "Python.split_wav_script.executor": "Run",
     "Python.test.executor": "Run",
     "Python.train.executor": "Run",
     "Python.visualization.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "#1 on test/cross-os-debug",
+    "git-widget-placeholder": "#2 on test/cross-os-debug",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -97,6 +239,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/data/preprocessed/negative" />
       <recent name="C:\Users\User\PycharmProjects\guitar-tabs-classification\src" />
     </key>
   </component>
@@ -116,29 +259,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/server/audio_main.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="audio_prep" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="guitar-tabs-classification" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/server" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/server/audio_prep.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -170,7 +290,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="prediction_handler" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="guitar-tabs-classification" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -179,12 +299,35 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/server" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/server/test.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/prediction_handler.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="split_wav_script" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="guitar-tabs-classification" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/split_wav_script.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -219,10 +362,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.audio_main" />
-        <item itemvalue="Python.test" />
-        <item itemvalue="Python.audio_prep" />
+        <item itemvalue="Python.prediction_handler" />
         <item itemvalue="Python.train" />
         <item itemvalue="Python.data_loader" />
+        <item itemvalue="Python.split_wav_script" />
       </list>
     </recent_temporary>
   </component>
@@ -248,6 +391,7 @@
       <workItem from="1742485988177" duration="22951000" />
       <workItem from="1743489260950" duration="341000" />
       <workItem from="1743504864232" duration="20207000" />
+      <workItem from="1744318538465" duration="8618000" />
     </task>
     <task id="LOCAL‎-00001" summary="Created data_loader.py, executed to save preprocessed files. EDA next">
       <option name="closed" value="true" />
@@ -313,7 +457,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744317565485</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Switch to PyAudio for audio streaming and integrate predictions&#10;&#10;Replaced Sounddevice with PyAudio in `audio_stream.py` for improved compatibility and functionality. Added prediction handling logic in `audio_main.py`, including loading a Keras model and processing predictions. Updated project configuration files to reflect these changes and support cross-platform testing.">
+      <option name="closed" value="true" />
+      <created>1744317898510</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1744317898510</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -347,11 +499,13 @@
     <SUITE FILE_PATH="coverage/guitar_tabs_classification$audio_stream.coverage" NAME="audio_stream Coverage Results" MODIFIED="1744193800099" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/server" />
     <SUITE FILE_PATH="coverage/guitar_tabs_classification$visualization.coverage" NAME="visualization Coverage Results" MODIFIED="1742490826050" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/guitar_tabs_classification$audio_prep.coverage" NAME="audio_prep Coverage Results" MODIFIED="1744273648706" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/server" />
+    <SUITE FILE_PATH="coverage/guitar_tabs_classification$split_wav_script.coverage" NAME="split_wav_script Coverage Results" MODIFIED="1744373008815" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/guitar_tabs_classification$test.coverage" NAME="test Coverage Results" MODIFIED="1744289486585" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/server" />
-    <SUITE FILE_PATH="coverage/guitar_tabs_classification$data_loader.coverage" NAME="data_loader Coverage Results" MODIFIED="1744195327103" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/guitar_tabs_classification$data_loader.coverage" NAME="data_loader Coverage Results" MODIFIED="1744377697396" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
     <SUITE FILE_PATH="coverage/guitar_tabs_classification$preprocessing.coverage" NAME="preprocessing Coverage Results" MODIFIED="1742469973824" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
-    <SUITE FILE_PATH="coverage/guitar_tabs_classification$audio_main.coverage" NAME="audio_main Coverage Results" MODIFIED="1744291304083" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/server" />
+    <SUITE FILE_PATH="coverage/guitar_tabs_classification$prediction_handler.coverage" NAME="prediction_handler Coverage Results" MODIFIED="1744378332849" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/guitar_tabs_classification$audio_main.coverage" NAME="audio_main Coverage Results" MODIFIED="1744379236733" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/server" />
     <SUITE FILE_PATH="coverage/guitar_tabs_classification$app.coverage" NAME="app Coverage Results" MODIFIED="1743331505106" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/server" />
-    <SUITE FILE_PATH="coverage/guitar_tabs_classification$train.coverage" NAME="train Coverage Results" MODIFIED="1744195963011" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/guitar_tabs_classification$train.coverage" NAME="train Coverage Results" MODIFIED="1744377755066" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
   </component>
 </project>
