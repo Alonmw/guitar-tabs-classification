@@ -46,7 +46,8 @@ guitar-tabs-classification/
 │       ├── __init__.py         # Makes 'model' a Python package
 │       ├── model_loader.py     # Utility to load the trained Keras model
 │       └── prediction_handler.py # Converts model output (softmax) to desired tab format
-│       └── (model.py, train.py likely belong here too)
+│       └── model.py            # Builds model structure
+|       └── train.py            # Trains the model
 ├── run.py                      # Script to start the Flask/SocketIO server
 ├── requirements.txt            # Project dependencies for pip
 └── README.md                   # This file
